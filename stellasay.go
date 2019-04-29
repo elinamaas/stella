@@ -6,7 +6,7 @@ import (
 )
 
 func Stellasay(text string) (string, error) {
-	cmd := exec.Command("/usr/games/cowsay", "-n")
+	cmd := exec.Command("/usr/games/stellasay", "-n")
 	stdin, err := cmd.StdinPipe()
 	if err != nil {
 		return "", err

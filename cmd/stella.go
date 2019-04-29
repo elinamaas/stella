@@ -1,13 +1,12 @@
-package cmd
+package main
 
 import (
 	"encoding/json"
 	"fmt"
-	"io"
+	sc "github.com/elinamaas/stella"
 	"log"
 	"net/http"
 	"os"
-	"os/exec"
 	"strings"
 )
 
@@ -39,7 +38,7 @@ func stellaHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	text := strings.Replace(r.FormValue("text"), "\r", "", -1)
-	balloonWithCow, err := cowsay(text)
+	balloonWithCow, err := sc.Stellasay(text)
 	if err != nil {
 		log.Println(err)
 		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
@@ -57,7 +56,6 @@ func stellaHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 	fmt.Fprintf(w, string(jsonResp))
 }
-
 
 func main() {
 	http.HandleFunc("/", stellaHandler)

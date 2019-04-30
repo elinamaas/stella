@@ -1,4 +1,4 @@
-package stella
+package cmd
 
 import (
 	"io"

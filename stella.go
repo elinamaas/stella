@@ -3,7 +3,7 @@ package stella
 import (
 	"encoding/json"
 	"fmt"
-	sc "github.com"
+	sc "github.com/elinamaas/stella/cmd"
 	"log"
 	"net/http"
 	"os"

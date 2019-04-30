@@ -1,9 +1,9 @@
-package main
+package stella
 
 import (
 	"encoding/json"
 	"fmt"
-	sc "github.com/elinamaas/stella"
+	sc "github.com"
 	"log"
 	"net/http"
 	"os"
